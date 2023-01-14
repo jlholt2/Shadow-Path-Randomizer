@@ -12,47 +12,47 @@ public class PathNameSelector : MonoBehaviour
         switch (pathString)
         {
             default:
-                return "ERROR: PATH NAME NOT FOUND";                
+                return "ERROR: PATH NAME NOT FOUND";
             case "dddddd":
-                return "001. Punishment, Thy Name is Ruin";                
+                return "001. Punishment, Thy Name is Ruin";
             case "dddddh":
-                return "002. Prologue to World Conquest";                
+                return "002. Prologue to World Conquest";
             case "ddddnd":
-                return "003. The March to a Darker World";                
+                return "003. The March to a Darker World";
             case "ddddnh":
-                return "004. The Ultimate Ego";                
+                return "004. The Ultimate Ego";
             case "dddhdd":
-                return "005. Purification via Ruination";                
+                return "005. Purification via Ruination";
             case "dddhdh":
-                return "006. Apogee of Darkness";                
+                return "006. Apogee of Darkness";
             case "dddhnd":
-                return "007. True Soldier of Destruction";                
+                return "007. True Soldier of Destruction";
             case "dddhnh":
-                return "008. Believe in Yourself";                
+                return "008. Believe in Yourself";
             case "dddhhd":
-                return "009. An Android's Determination";                
+                return "009. An Android's Determination";
             case "dddhhh":
-                return "010. For Machine, By Machine...";                
+                return "010. For Machine, By Machine...";
             case "ddnddd":
-                return "011. Revenge at Last";                
+                return "011. Revenge at Last";
             case "ddnddh":
-                return "012. Ego's Awakening";                
+                return "012. Ego's Awakening";
             case "ddndnd":
-                return "013. Destruction and Scorn";                
+                return "013. Destruction and Scorn";
             case "ddndnh":
-                return "014. The Last Remaining Purpose";                
+                return "014. The Last Remaining Purpose";
             case "ddnndd":
-                return "015. The Nightmare's Insulation";                
+                return "015. The Nightmare's Insulation";
             case "ddnndh":
-                return "016. The Nightmare's Sublimination";                
+                return "016. The Nightmare's Sublimination";
             case "ddnnnd":
-                return "017. The Loner's Choice";                
+                return "017. The Loner's Choice";
             case "ddnnnh":
-                return "018. Subjugation in Black";                
+                return "018. Subjugation in Black";
             case "ddnnhd":
-                return "019. Replica's Depression";                
+                return "019. Replica's Depression";
             case "ddnnhh":
-                return "020. Machine, Machine";                
+                return "020. Machine, Machine";
             case "ddnhdd":
                 return "021. Disciple from the Darkness";
             case "ddnhdh":
@@ -121,6 +121,71 @@ public class PathNameSelector : MonoBehaviour
                 return "053. A Clone's Determination";
             case "dhdnhh":
                 return "054. Machine Utopia";
+            case "dhdhdd":
+                return "055. A Toast to the Ruler";
+            case "dhdhdh":
+                return "056. Answer from the Black Comet";
+            case "dhdhnd":
+                return "057. Transcendentalism";
+            case "dhdhnh":
+                return "058. Imperialism";
+            case "dhdhhd":
+                return "059. The Weight of One's Crimes";
+            case "dhdhhh":
+                return "060. Imprisoned by the Past...";
+            case "dhnddd":
+                return "061. The Ultimate World Conquest";
+            case "dhnddh":
+                return "062. Black Angel";
+            case "dhndnd":
+                return "063. Under Dakness' Control";
+            case "dhndnh":
+                return "064. To Love Onself";
+            case "dhndhd":
+                return "065. Revenge and Determination";
+            case "dhndhh":
+                return "066. Birth of the Robot Emperor";
+            case "dhnndd":
+                return "067. Shadow, the Black Android";
+            case "dhnndh":
+                return "068. A Solitary Android";
+            case "dhnnnd":
+                return "069. Over the Original";
+            case "dhnnnh":
+                return "070. Machine Sunshine";
+            case "dhnnhd":
+                return "071. Life is Guilty";
+            case "dhnnhh":
+                return "072. Fallen Angel of Despair";
+            case "dhnhdd":
+                return "073. An Eternal Rival...";
+            case "dhnhdh":
+                return "074. This is Just the Beginning";
+            case "dhnhnd":
+                return "075. Crystal of Tragic Knowledge";
+            case "dhnhnh":
+                return "076. Shadow's Second Death...?";
+            case "dhnhhd":
+                return "077. The Legend of Shadow";
+            case "dhnhhh":
+                return "078. Power of Love";
+            case "dhhddd":
+                return "079. Deep Black";
+            case "dhhddh":
+                return "080. Walk My Way";
+
+
+            // Neutral
+            case "nnnnnd":
+                return "163. An Android's Rebellion";
+            case "nnnnnh":
+                return "164. A New Empire's Beginning";
+
+            // Hero
+            case "hhhhhd":
+                return "361. Pretense in the Mirror";
+            case "hhhhhh":
+                return "326. A Missive from 50 Years Ago";
         }
     }
 }
