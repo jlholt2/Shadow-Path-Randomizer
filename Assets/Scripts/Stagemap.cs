@@ -1,8 +1,8 @@
 // Shadow Race Path Decider
 // Code written by Zwataketa (Logan Holt)
 
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -29,8 +29,12 @@ public class Stagemap : MonoBehaviour
     int alignmentVal = 0;
     int stageNum = 0;
 
+    public PathNameSelector pathNameSelector;
+
     void Start()
     {
+        GameObject.Find("PathNameText").GetComponent<TextMeshProUGUI>().text = "";
+        pathNameSelector = new PathNameSelector();
         RandomizeCellImages();
     }
 
@@ -38,9 +42,7 @@ public class Stagemap : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.U))
         {
-            GameObject.Find("PathNameText").GetComponent<TextMeshProUGUI>().text = GameObject.Find("PathNameText").GetComponent<PathNameSelector>().GetPathName(stagePath);
-            GetAlignmentMap();
-            DrawStagePath();
+            UpdateBoard();
         }
     }
 
@@ -95,7 +97,14 @@ public class Stagemap : MonoBehaviour
     {
         PlayButtonSound();
         stagePath = GetStagePath();
-        GameObject.Find("PathNameText").GetComponent<TextMeshProUGUI>().text = GameObject.Find("PathNameText").GetComponent<PathNameSelector>().GetPathName(stagePath);
+        UpdateBoard();
+    }
+
+    public void UpdateBoard()
+    {
+        int pathID = pathNameSelector.GetPathID(stagePath);
+
+        GameObject.Find("PathNameText").GetComponent<TextMeshProUGUI>().text = pathID.ToString("000")+". "+pathNameSelector.pathStrings[pathID];
         GetAlignmentMap();
         DrawStagePath();
     }

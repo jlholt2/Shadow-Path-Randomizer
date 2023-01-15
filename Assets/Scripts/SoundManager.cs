@@ -1,8 +1,8 @@
 // Shadow Race Path Decider
 // Code written by Zwataketa (Logan Holt)
 
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
