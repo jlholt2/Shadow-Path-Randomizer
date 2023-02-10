@@ -562,7 +562,7 @@ public class PathNameSelector
 
             // Hero
             case "hhhhhd":
-                return 361;
+                return 325;
             case "hhhhhh":
                 return 326;
         }
