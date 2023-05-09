@@ -1,12 +1,9 @@
 // Shadow Race Path Decider
 // Code written by Zwataketa (Logan Holt)
 
-//using System.Collections;
-//using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
 
 public class ButtonScripts : MonoBehaviour
 {
@@ -16,6 +13,7 @@ public class ButtonScripts : MonoBehaviour
     [SerializeField] GameObject optionsPanel;
     [SerializeField] TMP_Dropdown bgDropdown;
     [SerializeField] TMP_Dropdown sndDropdown;
+    [SerializeField] TMP_Dropdown langDropdown;
     [SerializeField] Toggle hideToggle;
 
     [SerializeField] Image[] uiToHide;
@@ -103,5 +101,9 @@ public class ButtonScripts : MonoBehaviour
     public void OnSoundDropdownValueChanged()
     {
         soundManager.UpdateAudioClip(sndDropdown.value);
+    }
+    public void OnLanguageDropdownValueChanged()
+    {
+        // update language files for dict
     }
 }

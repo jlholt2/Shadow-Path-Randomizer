@@ -3,11 +3,13 @@
 
 //using System.Collections;
 using System.Collections.Generic;
-//using UnityEngine;
+using UnityEngine;
 
 public class PathNameSelector
 {
-    public Dictionary<int, string> pathStrings = new Dictionary<int, string>
+    [SerializeField] TextAsset[] languageFiles = new TextAsset[5];
+
+    public Dictionary<int, string> pathStrings;/* = new Dictionary<int, string>
         {
             {0   , "ERROR: PATH ID NOT SET"},
             {1   , "Punishment, Thy Name is Ruin"},
@@ -336,234 +338,269 @@ public class PathNameSelector
             {324 , "The Self-Imposed Seal"},
             {325 , "Pretense in the Mirror"},
             {326 , "A Missive from 50 Years Ago"},
-        };
+        };*/
 
     public int GetPathID(string pathString)
     {
+        /*
+            Always 6 characters long.
+            Character can only be D, N, or H, unless specified below.
+            If the first character is a D or H, the second character can only be D or H.
+            If the first three characters together are DDD, NDD, NHH, or HHH, the fourth character can only be a D or H.
+            If the first four characters together are DDDD, DDND, DHDD, NDDD, NNDD, or HDDD, the 5th character can only be D or N.
+            If the first four characters together are HHHH, HHNH HDHH, NHHH, NNHH, DHHH, the 5th character can only be H or N.
+            The 6th character can only be a D or H 
+         */
         switch (pathString)
         {
             default:
                 return 0;
-            case "dddddd":
+            case "DDDDDD":
                 return 1;
-            case "dddddh":
+            case "DDDDDH":
                 return 2;
-            case "ddddnd":
+            case "DDDDND":
                 return 3;
-            case "ddddnh":
+            case "DDDDNH":
                 return 4;
-            case "dddhdd":
+            case "DDDHDD":
                 return 5;
-            case "dddhdh":
+            case "DDDHDH":
                 return 6;
-            case "dddhnd":
+            case "DDDHND":
                 return 7;
-            case "dddhnh":
+            case "DDDHNH":
                 return 8;
-            case "dddhhd":
+            case "DDDHHD":
                 return 9;
-            case "dddhhh":
+            case "DDDHHH":
                 return 10;
-            case "ddnddd":
+            case "DDNDDD":
                 return 11;
-            case "ddnddh":
+            case "DDNDDH":
                 return 12;
-            case "ddndnd":
+            case "DDNDND":
                 return 13;
-            case "ddndnh":
+            case "DDNDNH":
                 return 14;
-            case "ddnndd":
+            case "DDNNDD":
                 return 15;
-            case "ddnndh":
+            case "DDNNDH":
                 return 16;
-            case "ddnnnd":
+            case "DDNNND":
                 return 17;
-            case "ddnnnh":
+            case "DDNNNH":
                 return 18;
-            case "ddnnhd":
+            case "DDNNHD":
                 return 19;
-            case "ddnnhh":
+            case "DDNNHH":
                 return 20;
-            case "ddnhdd":
+            case "DDNHDD":
                 return 21;
-            case "ddnhdh":
+            case "DDNHDH":
                 return 22;
-            case "ddnhnd":
+            case "DDNHND":
                 return 23;
-            case "ddnhnh":
+            case "DDNHNH":
                 return 24;
-            case "ddnhhd":
+            case "DDNHHD":
                 return 25;
-            case "ddnhhh":
+            case "DDNHHH":
                 return 26;
-            case "ddhddd":
+            case "DDHDDD":
                 return 27;
-            case "ddhddh":
+            case "DDHDDH":
                 return 28;
-            case "ddhdnd":
+            case "DDHDND":
                 return 29;
-            case "ddhdnh":
+            case "DDHDNH":
                 return 30;
-            case "ddhdhd":
+            case "DDHDHD":
                 return 31;
-            case "ddhdhh":
+            case "DDHDHH":
                 return 32;
-            case "ddhndd":
+            case "DDHNDD":
                 return 33;
-            case "ddhndh":
+            case "DDHNDH":
                 return 34;
-            case "ddhnnd":
+            case "DDHNND":
                 return 35;
-            case "ddhnnh":
+            case "DDHNNH":
                 return 36;
-            case "ddhnhd":
+            case "DDHNHD":
                 return 37;
-            case "ddhnhh":
+            case "DDHNHH":
                 return 38;
-            case "ddhhdd":
+            case "DDHHDD":
                 return 39;
-            case "ddhhdh":
+            case "DDHHDH":
                 return 40;
-            case "ddhhnd":
+            case "DDHHND":
                 return 41;
-            case "ddhhnh":
+            case "DDHHNH":
                 return 42;
-            case "ddhhhd":
+            case "DDHHHD":
                 return 43;
-            case "ddhhhh":
+            case "DDHHHH":
                 return 44;
-            case "dhdddd":
+            case "DHDDDD":
                 return 45;
-            case "dhdddh":
+            case "DHDDDH":
                 return 46;
-            case "dhddnd":
+            case "DHDDND":
                 return 47;
-            case "dhddnh":
+            case "DHDDNH":
                 return 48;
-            case "dhdndd":
+            case "DHDNDD":
                 return 49;
-            case "dhdndh":
+            case "DHDNDH":
                 return 50;
-            case "dhdnnd":
+            case "DHDNND":
                 return 51;
-            case "dhdnnh":
+            case "DHDNNH":
                 return 52;
-            case "dhdnhd":
+            case "DHDNHD":
                 return 53;
-            case "dhdnhh":
+            case "DHDNHH":
                 return 54;
-            case "dhdhdd":
+            case "DHDHDD":
                 return 55;
-            case "dhdhdh":
+            case "DHDHDH":
                 return 56;
-            case "dhdhnd":
+            case "DHDHND":
                 return 57;
-            case "dhdhnh":
+            case "DHDHNH":
                 return 58;
-            case "dhdhhd":
+            case "DHDHHD":
                 return 59;
-            case "dhdhhh":
+            case "DHDHHH":
                 return 60;
-            case "dhnddd":
+            case "DHNDDD":
                 return 61;
-            case "dhnddh":
+            case "DHNDDH":
                 return 62;
-            case "dhndnd":
+            case "DHNDND":
                 return 63;
-            case "dhndnh":
+            case "DHNDNH":
                 return 64;
-            case "dhndhd":
+            case "DHNDHD":
                 return 65;
-            case "dhndhh":
+            case "DHNDHH":
                 return 66;
-            case "dhnndd":
+            case "DHNNDD":
                 return 67;
-            case "dhnndh":
+            case "DHNNDH":
                 return 68;
-            case "dhnnnd":
+            case "DHNNND":
                 return 69;
-            case "dhnnnh":
+            case "DHNNNH":
                 return 70;
-            case "dhnnhd":
+            case "DHNNHD":
                 return 71;
-            case "dhnnhh":
+            case "DHNNHH":
                 return 72;
-            case "dhnhdd":
+            case "DHNHDD":
                 return 73;
-            case "dhnhdh":
+            case "DHNHDH":
                 return 74;
-            case "dhnhnd":
+            case "DHNHND":
                 return 75;
-            case "dhnhnh":
+            case "DHNHNH":
                 return 76;
-            case "dhnhhd":
+            case "DHNHHD":
                 return 77;
-            case "dhnhhh":
+            case "DHNHHH":
                 return 78;
-            case "dhhddd":
+            case "DHHDDD":
                 return 79;
-            case "dhhddh":
+            case "DHHDDH":
                 return 80;
-            case "dhhdnd":
+            case "DHHDND":
                 return 81;
-            case "dhhdnh":
+            case "DHHDNH":
                 return 82;
-            case "dhhdhd":
+            case "DHHDHD":
                 return 83;
-            case "dhhdhh":
+            case "DHHDHH":
                 return 84;
-            case "dhhndd":
+            case "DHHNDD":
                 return 85;
-            case "dhhndh":
+            case "DHHNDH":
                 return 86;
-            case "dhhnnd":
+            case "DHHNND":
                 return 87;
-            case "dhhnnh":
+            case "DHHNNH":
                 return 88;
-            case "dhhnhd":
+            case "DHHNHD":
                 return 89;
-            case "dhhnhh":
+            case "DHHNHH":
                 return 90;
-            case "dhhhnd":
+            case "DHHHND":
                 return 91;
-            case "dhhhnh":
+            case "DHHHNH":
                 return 92;
-            case "dhhhhd":
+            case "DHHHHD":
                 return 93;
-            case "dhhhhh":
+            case "DHHHHH":
                 return 94;
 
             // Neutral
-            case "nddddd":
+            case "NDDDDD":
                 return 95;
-            case "nddddh":
+            case "NDDDDH":
                 return 96;
-            case "ndddnd":
+            case "NDDDND":
                 return 97;
-            case "ndddnh":
+            case "NDDDNH":
                 return 98;
-            case "nddhdd":
+            case "NDDHDD":
                 return 99;
-            case "nddhdh":
+            case "NDDHDH":
                 return 100;
-            case "nddhnd":
+            case "NDDHND":
                 return 101;
-            case "nddhnh":
+            case "NDDHNH":
                 return 102;
-            case "nddhhd":
+            case "NDDHHD":
                 return 103;
-            case "nddhhh":
+            case "NDDHHH":
                 return 104;
+            case "NDNDDD":
+                return 105;
+            case "NDNDDH":
+                return 106;
+            case "NDNDHD":
+                return 107;
+            case "NDNDHH":
+                return 108;
+            case "NDNNDD":
+                return 109;
+            case "NDNNDH":
+                return 110;
+            case "NDNNND":
+                return 111;
+            case "NDNNNH":
+                return 112;
 
-            case "nnnnnd":
+            case "NNDDND":
+                return 141;
+            case "NNDDNH":
+                return 142;
+
+            case "NNNNND":
                 return 163;
-            case "nnnnnh":
+            case "NNNNNH":
                 return 164;
 
             // Hero
-            case "hhhhhd":
+            case "HDDDDD":
+                return 233;
+            case "HDDDDH":
+                return 234;
+
+            case "HHHHHD":
                 return 325;
-            case "hhhhhh":
+            case "HHHHHH":
                 return 326;
         }
     }

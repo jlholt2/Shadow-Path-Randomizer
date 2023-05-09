@@ -117,7 +117,7 @@ public class Stagemap : MonoBehaviour
         {
             switch (stagePath[i])
             {
-                case 'd':
+                case 'D':
                     if (i == 0)
                     {
                         stage1Cell.color = stageColors[2];
@@ -143,7 +143,7 @@ public class Stagemap : MonoBehaviour
                         stage6Cells[int.Parse(alignmentPath[i - 1].ToString())].color = stageColors[2];
                     }
                     break;
-                case 'h':
+                case 'H':
                     if (i == 0)
                     {
                         stage1Cell.color = stageColors[3];
@@ -239,27 +239,27 @@ public class Stagemap : MonoBehaviour
         alignmentVal = Mathf.Clamp(alignmentVal, min, max);
         if(alignmentVal >= max)
         {
-            while(returnMission == 'n' && stageNum != 4 || returnMission == 'h' && stageNum == 4)
+            while(returnMission == 'N' && stageNum != 4 || returnMission == 'H' && stageNum == 4)
             {
                 returnMission = MissionSelect();
             }
         }
         else if (alignmentVal <= min)
         {
-            while (returnMission == 'n' && stageNum != 4 || returnMission == 'd' && stageNum == 4)
+            while (returnMission == 'N' && stageNum != 4 || returnMission == 'D' && stageNum == 4)
             {
                 returnMission = MissionSelect();
             }
         }
-        while(stageNum == 5 && returnMission == 'n')
+        while(stageNum == 5 && returnMission == 'N')
         {
             returnMission = MissionSelect();
         }
-        if(returnMission == 'd' && alignmentVal < max || stageNum == 4 && alignmentVal <= min && returnMission == 'n')
+        if(returnMission == 'D' && alignmentVal < max || stageNum == 4 && alignmentVal <= min && returnMission == 'N')
         {
             alignmentVal++;
         }
-        else if (returnMission == 'h' && alignmentVal > min || stageNum == 4 && alignmentVal >= max && returnMission == 'n')
+        else if (returnMission == 'H' && alignmentVal > min || stageNum == 4 && alignmentVal >= max && returnMission == 'N')
         {
             alignmentVal--;
         }
@@ -271,11 +271,11 @@ public class Stagemap : MonoBehaviour
         switch (Random.Range(0, 3))
         {
             case 0:
-                return 'd';
+                return 'D';
             case 1:
-                return 'h';
+                return 'H';
             default:
-                return 'n';
+                return 'N';
         }
     }
 
@@ -290,10 +290,10 @@ public class Stagemap : MonoBehaviour
         {
             switch (stagePath[0])
             {
-                case 'd':
+                case 'D':
                     alignmentPath += '2';
                     break;
-                case 'h':
+                case 'H':
                     alignmentPath += '0';
                     break;
                 default:
@@ -302,7 +302,7 @@ public class Stagemap : MonoBehaviour
             }
             switch (stagePath[1])
             {
-                case 'd':
+                case 'D':
                     if (alignmentPath[alignmentPath.Length - 1] == '2' || alignmentPath[alignmentPath.Length - 1] == '1')
                     {
                         alignmentPath += '2';
@@ -312,7 +312,7 @@ public class Stagemap : MonoBehaviour
                         alignmentPath += '1';
                     }
                     break;
-                case 'h':
+                case 'H':
                     if (alignmentPath[alignmentPath.Length - 1] == '0' || alignmentPath[alignmentPath.Length - 1] == '1')
                     {
                         alignmentPath += '0';
@@ -329,10 +329,10 @@ public class Stagemap : MonoBehaviour
 
             switch (stagePath[2])
             {
-                case 'd':
+                case 'D':
                     alignmentPath += (int.Parse(alignmentPath[alignmentPath.Length - 1].ToString()) + 2).ToString();
                     break;
-                case 'h':
+                case 'H':
                     alignmentPath += (int.Parse(alignmentPath[alignmentPath.Length - 1].ToString())).ToString();
                     break;
                 default:
@@ -344,7 +344,7 @@ public class Stagemap : MonoBehaviour
             {
                 switch (stagePath[i])
                 {
-                    case 'd':
+                    case 'D':
                         if (int.Parse(alignmentPath[i - 1].ToString()) > 2)
                         {
                             alignmentPath += '4';
@@ -354,7 +354,7 @@ public class Stagemap : MonoBehaviour
                             alignmentPath += (int.Parse(alignmentPath[i - 1].ToString()) + 1).ToString();
                         }
                         break;
-                    case 'h':
+                    case 'H':
                         if (int.Parse(alignmentPath[i - 1].ToString()) < 2)
                         {
                             alignmentPath += '0';
